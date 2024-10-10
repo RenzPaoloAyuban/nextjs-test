@@ -4,11 +4,23 @@ import GoogleProvider from "next-auth/providers/google";
 import User from "@models/user";
 import { connectToDB } from "@utils/database";
 
+const checkConnection = async () => {
+    const connectionStatus = await connectToDB();
+    console.log(connectionStatus); // Logs the connection status or any error message
+  };
+  
+checkConnection();
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+        params: {
+          scope: "email profile",
+        },
+      },
     }),
   ],
   callbacks: {
@@ -34,7 +46,9 @@ const handler = NextAuth({
                 });
             }
     
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
       }
   } 
 });

@@ -8,8 +8,7 @@ const userSchema = new Schema({
     },
     username:{
         type: String,
-        required: [true, "Username is required"],
-        match: [/^[a-zA-Z0-9]+$/, "Username can only contain letters and numbers"]
+        required: [true, "Username is required"]
     },
     image: {
         type: String,
