@@ -2,7 +2,11 @@ import { Schema, model, models } from "mongoose";
 
 const PromptSchema = new Schema({
     creator: {
+<<<<<<< HEAD
         type: Schema.Types.ObjectId,
+=======
+        type: mongoose.Schema.Types.ObjectId,
+>>>>>>> f314546 (created Forms and its api)
         ref: 'User',
     },
     prompt: {
