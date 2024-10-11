@@ -59,6 +59,7 @@ const UpdatePrompt = () => {
             setPost={setPost}
             submitting={submitting}
             handleSubmit={updatePrompt}
+            isUpdateMode={true}
         />
     );
 };

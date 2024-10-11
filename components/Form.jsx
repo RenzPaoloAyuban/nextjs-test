@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Form = ({
-    type, post, setPost, submitting, handleSubmit
+    type, post, setPost, submitting, handleSubmit, isUpdateMode
 }) => {
     return (
         <section className="w-full max-w-full flex-start flex-col">
@@ -46,7 +46,7 @@ const Form = ({
                 </label>
 
                 <div className="flex-end mx-3 mb-4 gap-4">
-                    <Link href="/" className="text-gray-500 text-sm">
+                    <Link href={isUpdateMode ? "/profile" : "/"} className="text-gray-500 text-sm">
                         Cancel
                     </Link>
 
