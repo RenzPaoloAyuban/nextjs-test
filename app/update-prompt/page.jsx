@@ -1,19 +1,20 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react"; // Import Suspense
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const UpdatePromptInner = ({ promptId }) => {
+const UpdatePrompt = () => {
     const router = useRouter();
-    const [post, setPost] = useState({ prompt: "", tag: "" });
+    const searchParams = useSearchParams();
+    const promptId = searchParams.get("id");
+
+    const [post, setPost] = useState({ prompt: "", tag: "", });
     const [submitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         const getPromptDetails = async () => {
-            if (!promptId) return;
-
             const response = await fetch(`/api/prompt/${promptId}`);
             const data = await response.json();
 
@@ -23,7 +24,7 @@ const UpdatePromptInner = ({ promptId }) => {
             });
         };
 
-        getPromptDetails();
+        if (promptId) getPromptDetails();
     }, [promptId]);
 
     const updatePrompt = async (e) => {
@@ -39,9 +40,6 @@ const UpdatePromptInner = ({ promptId }) => {
                     prompt: post.prompt,
                     tag: post.tag,
                 }),
-                headers: {
-                    "Content-Type": "application/json", // Add headers for JSON
-                },
             });
 
             if (response.ok) {
@@ -62,17 +60,6 @@ const UpdatePromptInner = ({ promptId }) => {
             submitting={submitting}
             handleSubmit={updatePrompt}
         />
-    );
-};
-
-const UpdatePrompt = () => {
-    const searchParams = useSearchParams();
-    const promptId = searchParams.get("id");
-
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <UpdatePromptInner promptId={promptId} />
-        </Suspense>
     );
 };
 
