@@ -59,7 +59,10 @@ const UpdatePrompt = () => {
             setPost={setPost}
             submitting={submitting}
             handleSubmit={updatePrompt}
+<<<<<<< HEAD
             isUpdateMode={true}
+=======
+>>>>>>> 1edbc47 (almost finished, search bar completed)
         />
     );
 };
