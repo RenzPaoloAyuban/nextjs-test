@@ -7,6 +7,7 @@ export const metadata = {
     title: "Promptopia",
     description: 'Discover the best prompts for your next writing session.'
 }
+
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
