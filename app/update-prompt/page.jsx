@@ -60,9 +60,13 @@ const UpdatePrompt = () => {
             submitting={submitting}
             handleSubmit={updatePrompt}
 <<<<<<< HEAD
+<<<<<<< HEAD
             isUpdateMode={true}
 =======
 >>>>>>> 1edbc47 (almost finished, search bar completed)
+=======
+            isUpdateMode={true}
+>>>>>>> 589f005 (make cancel button in forms dynamic)
         />
     );
 };
