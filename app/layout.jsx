@@ -1,7 +1,5 @@
 import '@styles/globals.css'
 
-import { Analytics } from "@vercel/analytics/react"
-
 
 import Nav from '@components/Nav'
 import Provider from '@components/Provider'
@@ -16,7 +14,6 @@ const RootLayout = ({ children }) => {
         <html lang="en">
             <body>
                 <Provider>
-                    <Analytics id="UA-123456789-0" />
                     <div className="main">
                         <div className="gradient" />
                     </div>
