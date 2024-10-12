@@ -38,7 +38,7 @@ const Feed = () => {
     };
 
     useEffect(() => {
-        console.log(allPosts); // Logs allPosts when it updates
+        fetchPosts(); // Logs allPosts when it updates
     }, [allPosts]);
 
     const filterPrompts = (searchtext) => {
